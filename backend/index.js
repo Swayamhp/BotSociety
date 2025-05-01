@@ -14,24 +14,14 @@ import dotenv from 'dotenv';
 dotenv.config();
 const app = express();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.use(cookieParser())
-app.use(cors({
-    origin: "https://botsociety.netlify.app",
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://your-app-name.netlify.app"
+  ];
+  
+  app.use(cors({
+    origin: allowedOrigins,
     credentials: true,
   }));
 mongoose.connect(process.env.MONGO_URL)

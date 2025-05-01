@@ -181,12 +181,12 @@ const Admin = () => {
                   />
                   <h3 className="text-lg font-semibold text-blue-600">{bot.name}</h3>
                   <p className="text-gray-700 mt-2">{bot.description}</p>
-                  <button onClick={()=>{
+                  <button disabled onClick={()=>{
                     handleDeleteBot(bot.id);
-                  }} className="mt-4 py-2 px-4  bg-red-600 text-white rounded-md hover:bg-red-700">
+                  }} className="mt-4 py-2 px-4 X bg-red-600 text-white rounded-md hover:bg-red-700">
                     Delete Bot
                   </button>
-                  <button 
+                  <button disabled
                   className="mt-2 ml-2 py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700">
                   <Link to={`/update/${bot.id}`}>
                     Update 
