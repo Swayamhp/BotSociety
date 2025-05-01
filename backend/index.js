@@ -17,11 +17,11 @@ const app = express();
 app.use(cookieParser())
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://your-app-name.netlify.app"
+    "https://botsociety.netlify.app/"
   ];
   
   app.use(cors({
-    origin: allowedOrigins,
+    origin: "https://botsociety.netlify.app",
     credentials: true,
   }));
 mongoose.connect(process.env.MONGO_URL)
@@ -41,11 +41,6 @@ app.use('/api',postRouter);
 app.use('/api',botRouter);
 app.use('/api',userRouter);
 app.use('/api',commentRouter);
-
-
-
-
-
 
 app.listen(3000,() => {
     console.log('Server is running on port 3000')});
