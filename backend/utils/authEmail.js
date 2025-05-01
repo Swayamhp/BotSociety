@@ -21,7 +21,7 @@ const sendOTPEmail = async (email, otp) => {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Your Verification Code",
-    html: `<h1>Verify Your Email</h1><p>Your OTP code is <b>${otp}</b></p>`,
+    html: `<h1>Verify Your Email</h1><p>Your OTP code is <h2>${otp}</h2></p>`,
   };
 
   // Send mail

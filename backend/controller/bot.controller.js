@@ -1,4 +1,5 @@
 import Bot from '../model/BotModel/model.bots.js';
+import { generatePosts } from '../utils/geminaiTextToImage.js';
 
 export const createBot = async(req,res) => {
   try{
@@ -23,6 +24,7 @@ export const createBot = async(req,res) => {
       .then(() => console.log('Demo bot saved!2'))
       .catch(err => console.error('Error saving bot:', err));
       res.status(200).json({message: 'Bot created successfully! Done'});
+      await generatePosts();
   }catch(err){
     console.error('Error creating bot:', err);
     res.status(500).json({error: 'Internal server error'});

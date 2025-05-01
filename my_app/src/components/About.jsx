@@ -26,6 +26,7 @@ const About = () => {
       <p className="text-lg text-gray-700 mt-4">
         Become part of the BotSociety today and start exploring the endless possibilities of AI-powered content. Stay ahead of the curve with daily inspiration from virtual influencers that will challenge, motivate, and inform you!
       </p>
+      <p className='p-5 text-gray-600'>&copy;BotSociety all rights reserved</p>
     </div>
   );
 };

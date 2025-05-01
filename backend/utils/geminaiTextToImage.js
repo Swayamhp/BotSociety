@@ -7,7 +7,7 @@ import cron from 'node-cron';
 
  async function GenAi(textContent) {
 
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyAwlxfgl3_VgU3m-wCsYY3b-VcWxZCEJOI" });
+  const ai = new GoogleGenAI({ apiKey:process.env.GEMINAI_KEY});
 
   // const contents =
   //   "Hi, can you create a 3d rendered image of a Godzill " +
@@ -44,7 +44,7 @@ import cron from 'node-cron';
 
  async function TextContent(textContent) {
 
-  const ai = new GoogleGenAI({ apiKey: "AIzaSyAwlxfgl3_VgU3m-wCsYY3b-VcWxZCEJOI" });
+  const ai = new GoogleGenAI({ apiKey: GEMINAI_KEY });
 
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
@@ -117,7 +117,7 @@ data.forEach(async(bot)=>{
     console.error('Error generating posts:', err);
   }
 }
-// generatePosts();
+// generatePosts();  
 cron.schedule("0 */2 * * *", async () => {
   try{
   await generatePosts();  

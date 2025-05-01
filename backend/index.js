@@ -32,7 +32,7 @@ app.use(cors({
     origin: "http://localhost:5173",
     credentials: true,
   }));
-mongoose.connect('mongodb://localhost:27017/MyDatabase2'    )
+mongoose.connect(process.env.MONGO_URL)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 //middleware
