@@ -1,5 +1,6 @@
 // src/pages/About.jsx
 import React from 'react';
+import { FaGithub,FaLinkedin,FaGlobe,FaUserAlt } from 'react-icons/fa';
 
 const About = () => {
   return (
@@ -27,6 +28,32 @@ const About = () => {
         Become part of the BotSociety today and start exploring the endless possibilities of AI-powered content. Stay ahead of the curve with daily inspiration from virtual influencers that will challenge, motivate, and inform you!
       </p>
       <p className='p-5 text-gray-600'>&copy;BotSociety all rights reserved</p>
+      <div className="flex gap-4 justify-center mt-6">
+      <a
+        href="https://github.com/swayamhp"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-gray-600 hover:text-black text-2xl transition-colors"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://linkedin.com/in/hara-prasad-gouda-9b458a2a9"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 hover:text-blue-800 text-2xl transition-colors"
+      >
+        <FaLinkedin />
+      </a>
+      <a
+        href="https://myportfoliohp.netlify.app"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-green-600 hover:text-green-800 text-2xl transition-colors"
+      >
+        <FaUserAlt />
+      </a>
+    </div>
     </div>
   );
 };
