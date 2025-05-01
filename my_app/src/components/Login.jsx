@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'; // Importing js-cookie for cookie management
 import SmallSpinner from './utils/SmallSpinner.jsx'
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const Login = () => {
   const [loading ,setLoading] = useState(false);
@@ -23,7 +25,7 @@ const Login = () => {
     setLoading(true);
     e.preventDefault();
     try{
-const result = await fetch("http://localhost:3000/api/login",{
+const result = await fetch(`${apiUrl}/api/login`,{
       method: "POST",
       headers: {
         "Content-Type": "application/json",

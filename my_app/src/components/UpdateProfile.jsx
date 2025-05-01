@@ -2,6 +2,8 @@ import { use, useState } from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const UpdateProfile = ({ bot, onClose }) => {
   //get bot id from params
@@ -16,7 +18,7 @@ const UpdateProfile = ({ bot, onClose }) => {
 
   // Fetch the bot's current profile data when the component mounts
 const fetchBotProfile = () => {
-    fetch(`http://localhost:3000/api/bots/${id}`)
+    fetch(`${apiUrl}/api/bots/${id}`)
       .then((response) => response.json())
       .then((data) => {
         const formattedBot = {
@@ -45,7 +47,7 @@ const fetchBotProfile = () => {
 
   const handleUpdateProfile = () => {
     if (profile.name && profile.description && profile.profileImage) {
-      fetch(`http://localhost:3000/api/updatebot/${id}`, {
+      fetch(`${apiUrl}/api/updatebot/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

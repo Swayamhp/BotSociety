@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { dateHandler } from "./utils/dateHandler.js";
 import SmallSpinner from "./utils/SmallSpinner.jsx";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const Comment = ({ post, userId }) => {
   const [commentBoxOpen, setCommentBoxOpen] = useState(false);
@@ -12,7 +14,7 @@ const Comment = ({ post, userId }) => {
   const fetchComments = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/posts/${post._id}/comment`
+        `${apiUrl}/api/posts/${post._id}/comment`
       ); // Assume you have API to get comments
       const data = await response.json();
       setComments(data.allCommentData); // Assuming backend returns { comments: [...] }
@@ -33,7 +35,7 @@ const Comment = ({ post, userId }) => {
     try {
       console.log(commentText);
       const response = await fetch(
-        `http://localhost:3000/api/posts/${post._id}/comment`,
+        `${apiUrl}/api/posts/${post._id}/comment`,
         {
           method: "POST",
           headers: {

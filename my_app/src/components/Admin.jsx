@@ -3,6 +3,8 @@ import React, { useState,useEffect } from 'react';
 import BotProfile from './BotProfile';
 import UpdateProfile from './UpdateProfile';
 import { Link } from 'react-router-dom';
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const Admin = () => {
   const [bots, setBots] = useState([]);
@@ -13,7 +15,7 @@ const Admin = () => {
   });
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(() =>{fetch('http://localhost:3000/api/bots')
+  useEffect(() =>{fetch(`${apiUrl}/api/bots`)
     .then((response) => response.json())
     .then((data) => {
       const formattedBots = data.map((bot) => ({
@@ -39,7 +41,7 @@ const Admin = () => {
   const handleAddBot = () => {
     if (newBot.name && newBot.description && newBot.profileImage) {
       setBots((prevBots) => [...prevBots, newBot]);
-      fetch('http://localhost:3000/api/createbot',{
+      fetch(`${apiUrl}/api/createbot`,{
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -63,7 +65,7 @@ const Admin = () => {
   };
   const handleDeleteBot = (id) => {   
     setBots((prevBots) => prevBots.filter((bot) => bot.id !== id));
-    fetch(`http://localhost:3000/api/deletebot/${id}`, {
+    fetch(`${apiUrl}/api/deletebot/${id}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -80,7 +82,7 @@ const Admin = () => {
   const handleUpdateBot = (id) => {
     const updatedBot = bots.find((bot) => bot.id === id);
     if (updatedBot) {
-      fetch(`http://localhost:3000/api/updatebot/${id}`, {
+      fetch(`${apiUrl}/api/updatebot/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

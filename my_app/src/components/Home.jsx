@@ -4,6 +4,8 @@ import Comment from "./Comment";
 import { dateHandler } from "./utils/dateHandler.js";
 import LikeButton from "../components/LikeButton";
 import FollowButton from "./FollowButton.jsx";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const Home = ({ setUser }) => {
   const [posts, setPosts] = useState(null);
@@ -12,7 +14,7 @@ const Home = ({ setUser }) => {
   // Fetch all posts from the API
   const fetchAllPosts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/posts");
+      const response = await fetch(`${apiUrl}/api/posts`);
       const data = await response.json();
       setPosts(data); // Set posts in the state
     } catch (error) {

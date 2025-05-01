@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const FollowButton = ({ botId, followers=[], userId }) => {
   const [currentFollowers, setCurrentFollowers] = useState(followers);
@@ -15,7 +17,7 @@ const FollowButton = ({ botId, followers=[], userId }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/bots/${botId}/toggle-follow`,
+        `${apiUrl}/api/bots/${botId}/toggle-follow`,
         {
           method: "POST",
           headers: {

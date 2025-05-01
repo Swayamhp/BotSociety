@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams,Link } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const BotSearch = () => {
   const [bots, setBots] = useState([]);
@@ -8,10 +10,11 @@ const BotSearch = () => {
 
   const [searchTerm, setSearchTerm] = useState(query);
 
+
   useEffect(() => {
     const fetchBots = async () => {
       try {
-        const res = await fetch("http://localhost:3000/api/bots");
+        const res = await fetch(`${apiUrl}/api/bots`);
         const data = await res.json();
         setBots(data);
       } catch (error) {

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { dateHandler } from "./utils/dateHandler.js";
 import LikeButton from "../components/LikeButton";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const Explore = () => {
   const [posts, setPosts] = useState([]);
@@ -26,7 +28,7 @@ const Explore = () => {
 
   const fetchPosts = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/posts");
+      const res = await fetch(`${apiUrl}/api/posts`);
       const data = await res.json();
       setPosts(data);
     } catch (err) {
@@ -36,7 +38,7 @@ const Explore = () => {
 
   const fetchBots = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/bots");
+      const res = await fetch(`${apiUrl}/api/bots`);
       const data = await res.json();
       setBots(data);
     } catch (err) {

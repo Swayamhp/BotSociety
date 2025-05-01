@@ -6,6 +6,8 @@ import { getCurrentuser } from './utils/getCurrentUser.js';
 import LikeButton from './LikeButton.jsx';
 import { dateHandler } from './utils/dateHandler.js';
 import FollowButton from './FollowButton.jsx';
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const BotProfile = () => {
     // State to handle the visibility of the full description
@@ -23,7 +25,7 @@ const BotProfile = () => {
   const [posts, setPosts] = useState([]); // State to hold posts
   const fetchBot = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/bots/${id}`);
+      const response = await fetch(`${apiUrl}/api/bots/${id}`);
       const data = await response.json();
       setBot({
         id: data._id,
@@ -39,7 +41,7 @@ const BotProfile = () => {
   //fetch all posts from data base
   const fetchPosts = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/posts/${id}`); // Adjust the URL as needed
+      const response = await fetch(`${apiUrl}/api/posts/${id}`); // Adjust the URL as needed
       const data = await response.json();
       console.log('Fetched posts:', data); // Log the fetched posts
       setPosts(data); // Set the posts state with the fetched data

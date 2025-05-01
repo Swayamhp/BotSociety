@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import FollowButton from './FollowButton';
 import { getCurrentuser } from './utils/getCurrentUser';
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const dummyBots = [];
 
@@ -16,7 +18,7 @@ const Bots = () => {
   // This component will fetch and display a list of bots from the backend API
   const fetchBots = async () => { 
     try {
-      const response = await fetch('http://localhost:3000/api/bots'); // Adjust the URL as needed
+      const response = await fetch(`${apiUrl}/api/bots`); // Adjust the URL as needed
       const data = await response.json();
       console.log('Fetched bots:', data);
       data.map((bot) => {

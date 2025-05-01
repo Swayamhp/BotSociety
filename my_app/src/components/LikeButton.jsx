@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+const apiUrl = import.meta.env.VITE_API_URL;
+
 
 const LikeButton = ({ postId, likes = [], userId }) => {
   const [currentLikes, setCurrentLikes] = useState(likes);
@@ -14,7 +16,7 @@ const LikeButton = ({ postId, likes = [], userId }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/posts/${postId}/like-toggle`,
+        `${apiUrl}/api/posts/${postId}/like-toggle`,
         {
           method: "POST",
           headers: {

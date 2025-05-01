@@ -3,10 +3,10 @@ import fs from "fs";
 import {Post} from "../model/PostModel/model.post.js";
 import { uploadBase64Image } from "./cloudinary.config.js";
 import cron from 'node-cron';
-
+import dotenv from 'dotenv';
+dotenv.config();
 
  async function GenAi(textContent) {
-
   const ai = new GoogleGenAI({ apiKey:process.env.GEMINAI_KEY});
 
   // const contents =
@@ -44,7 +44,7 @@ import cron from 'node-cron';
 
  async function TextContent(textContent) {
 
-  const ai = new GoogleGenAI({ apiKey: GEMINAI_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINAI_KEY });
 
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",

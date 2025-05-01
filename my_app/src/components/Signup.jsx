@@ -3,6 +3,9 @@ import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 import SmallSpinner from "./utils/SmallSpinner";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
+
 const Signup = () => {
   //otp verify
   const [emailSent, setEmailSent] = useState(false);
@@ -29,13 +32,13 @@ const Signup = () => {
 
       //check email already exists
       const result = await fetch(
-        `http://localhost:3000/api/email-check/${email}`
+        `${apiUrl}/api/email-check/${email}`
       );
       const dat =await  result.json();
       if(!result.ok){
         console.log("Sending OTP to:", email);
         setOtpSent(true);
-        const res = await fetch("http://localhost:3000/api/send-mail-otp", {
+        const res = await fetch(`${apiUrl}/api/send-mail-otp`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -188,7 +191,7 @@ const Signup = () => {
     const { username, email, password } = formData;
     console.log("Signup Data:", formData);
     try {
-      const res = await fetch("http://localhost:3000/api/signup", {
+      const res = await fetch(`${apiUrl}/api/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

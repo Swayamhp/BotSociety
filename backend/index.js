@@ -10,8 +10,10 @@ import userRouter from './router/user.router.js';
 import cookieParser from 'cookie-parser';
 import commentRouter from './router/comment.router.js';
 import botReply from './utils/botReplyToComment.js';
-
+import dotenv from 'dotenv';
+dotenv.config();
 const app = express();
+
 
 
 
@@ -54,8 +56,8 @@ app.use('/api',commentRouter);
 
 
 
+
 app.listen(3000,() => {
     console.log('Server is running on port 3000')});
  
-
 
