@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie'; // Importing js-cookie for cookie management
+// import Cookies from 'js-cookie'; // Importing js-cookie for cookie management
 import SmallSpinner from './utils/SmallSpinner.jsx'
 const apiUrl = import.meta.env.VITE_API_URL;
 

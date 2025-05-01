@@ -1,5 +1,4 @@
 // src/pages/Bots.jsx
-import { set } from 'mongoose';
 import React, { use } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
