@@ -1,9 +1,8 @@
 import React, { useState, useEffect, } from "react";
 import { BrowserRouter as Router, Routes, Route, Link,useNavigate } from "react-router-dom";
-import Admin from "./Admin"; // Importing the Admin component
-import Cookies from "js-cookie"; // Importing js-cookie for cookie management
-import { jwtDecode } from "jwt-decode";
-import { set } from "mongoose";
+// import Admin from "./Admin"; // Importing the Admin component
+// import Cookies from "js-cookie"; // Importing js-cookie for cookie management
+// import { jwtDecode } from "jwt-decode";
 // Importing jwt-decode for decoding JWT tokens
 
 const Navbar = ({userInfo,setUser}) => {
