@@ -31,7 +31,7 @@ const app = express();
 
 app.use(cookieParser())
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://botsociety.netlify.app",
     credentials: true,
   }));
 mongoose.connect(process.env.MONGO_URL)
