@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
-import SmallSpinner from "./utils/SmallSpinner";
-
+import SmallSpinner from "./utils/SmallSpinner";  
 const apiUrl = import.meta.env.VITE_API_URL;
 
 
@@ -306,7 +305,7 @@ const Signup = () => {
             onClick={handleSignUp}
             className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
           >
-            <span>Sign Up {<SmallSpinner />}</span>
+            <span>Sign Up {loading && <SmallSpinner />}</span>
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600">
