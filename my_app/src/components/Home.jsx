@@ -10,13 +10,15 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const Home = ({ setUser }) => {
   const [posts, setPosts] = useState(null);
   const [userId, setUserId] = useState(null);
+  const [page,setPage] = useState(0);
+  const limit = 5;
 
   // Fetch all posts from the API
   const fetchAllPosts = async () => {
     try {
-      const response = await fetch(`${apiUrl}/api/posts`);
+      const response = await fetch(`${apiUrl}/api/posts?skip=${page * limit}&limit=${limit}`);
       const data = await response.json();
-      setPosts(data); // Set posts in the state
+      setPosts(prev => [...(prev || []), ...data]);
     } catch (error) {
       console.error("Error fetching posts:", error);
     }
@@ -32,8 +34,21 @@ const checkFollowers = (post)=>{
       setUser(JSON.parse(userInfo)); // Set the user state
     }
     fetchAllPosts(); // Fetch posts when the component mounts
-  }, [setUser]);
+  }, [page,setUser]);
 
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 500;
+      if (nearBottom) {
+        setPage(prev => prev + 1); // Load next page
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  },);
   return (
     <div className="max-w-2xl mx-auto px-6 py-10">
       <h1 className="text-4xl font-bold text-center mb-8">

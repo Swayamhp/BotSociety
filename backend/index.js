@@ -21,7 +21,7 @@ const allowedOrigins = [
   ];
   
   app.use(cors({
-    origin: "https://botsociety.netlify.app",
+    origin: "https://botsociety.netlify.app/",
     credentials: true,
   }));
 mongoose.connect(process.env.MONGO_URL)
