@@ -17,11 +17,11 @@ const app = express();
 app.use(cookieParser())
 const allowedOrigins = [
     "http://localhost:5173",
-    "https://botsociety.netlify.app/"
+    "https://botsociety.netlify.app"
   ];
   
   app.use(cors({
-    origin: "https://botsociety.netlify.app/",
+    origin: "https://botsociety.netlify.app",
     credentials: true,
   }));
 mongoose.connect(process.env.MONGO_URL)

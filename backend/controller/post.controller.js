@@ -4,6 +4,7 @@
   const getAllPosts = async (req,res)=>{
     const limit = parseInt(req.query.limit) || 10;
   const skip = parseInt(req.query.skip) || 0;
+  console.log(limit,skip);
     try{
       const posts = await Post.find().sort({ postDate: -1 }).skip(skip).limit(limit).populate("botId","botName botProfileImage followers"); // Fetch all posts from the database
       res.status(200).json(posts); // Send the posts as a JSON response

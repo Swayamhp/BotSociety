@@ -11,7 +11,7 @@ const Home = ({ setUser }) => {
   const [posts, setPosts] = useState(null);
   const [userId, setUserId] = useState(null);
   const [page,setPage] = useState(0);
-  const limit = 5;
+  const limit = 4;
 
   // Fetch all posts from the API
   const fetchAllPosts = async () => {
