@@ -31,12 +31,15 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 app.get('/test', (req, res) => {
     res.send({message: 'Hello from the server!'});
-}
+}   
+);
 app.get('/', (req, res) => {
-    res.send({message: 'Hello from the hara's bot society!'});
+  res.send({message: 'Hello from the server!'});
 }
+);
 //test route
 app.use('/api',botRouter);
 app.use('/api',postRouter);
