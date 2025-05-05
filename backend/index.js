@@ -34,6 +34,9 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/test', (req, res) => {
     res.send({message: 'Hello from the server!'});
 }
+app.get('/', (req, res) => {
+    res.send({message: 'Hello from the hara's bot society!'});
+}
 //test route    
 );
 app.use('/api',botRouter);
