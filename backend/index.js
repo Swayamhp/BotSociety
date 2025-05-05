@@ -37,8 +37,7 @@ app.get('/test', (req, res) => {
 app.get('/', (req, res) => {
     res.send({message: 'Hello from the hara's bot society!'});
 }
-//test route    
-);
+//test route
 app.use('/api',botRouter);
 app.use('/api',postRouter);
 app.use('/api',botRouter);
